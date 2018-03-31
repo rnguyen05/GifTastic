@@ -9,20 +9,19 @@
     <link href="https://fonts.googleapis.com/css?family=Anton|Concert+One|Patua+One" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     
 </head>
 <body>
-    <div class="container">
+    <div class="container jumbotron">
+        <div class="header">GifTastic</div>
         <div class="row pt-3 mb-4">
             <div id="displayBtn" class="col-md-8 mr-auto mb-2"></div>
-            <div id="displayForm" class="col-md-3 ml-auto">
-                <form>
-                    <div class="form-group">
-                        <!-- <label for="exampleInputEmail1">Email address</label> -->
-                        <input type="text" class="form-control mr-sm-2 mb-2" id="newAnimal" placeholder="Add an Animal">
-                    </div>
-                    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Submit</button>
+            <div id="displayForm" class="col-md-4 ml-auto">
+                <form class="form-inline my-2 my-lg-0">
+                    <input type="text" class="form-control mr-sm-2" id="newAnimal" placeholder="Add an Animal">
+                    <button type="submit" class="btn btn-outline-secondary my-2 my-sm-0">Submit</button>
                 </form>
             </div>
         </div>
@@ -30,7 +29,9 @@
 
     <div class="container">
         <div id="displayAnimals" class="row pl-3"></div> 
-        <div id="loadMore">more...</div> 
+        <div >
+            <div id="loadMore" class="btn btn-secondary mb-2">Load more...</div>
+        </div>
     </div>
 
     <script type="text/javascript" src="assets/javascript/animals.js"></script>
