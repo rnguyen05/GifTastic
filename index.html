@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GifTastic</title>
+    <title>Gifanatic</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Anton|Concert+One|Patua+One" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    
 </head>
+
 <body>
     <div class="container jumbotron">
-        <div class="header">GifTastic</div>
-        <div class="row pt-3 mb-4">
-            <div id="displayBtn" class="col-md-8 mr-auto mb-2"></div>
+        <div class="header">Gifanatic</div>
+        <div class="topics col-md-1 mt-1">Topics</div>
+        <div class="row pt-3">
+            <div id="displayBtn" class="col-md-8 mr-auto"></div>
             <div id="displayForm" class="col-md-4 ml-auto">
                 <form class="form-inline my-2 my-lg-0">
                     <input type="text" class="form-control mr-sm-2" id="newAnimal" placeholder="Add an Animal">
@@ -25,20 +28,26 @@
                 </form>
             </div>
         </div>
+        <div class="Fav">
+            <div class="topics col-md-2 mt-1">Favorites</div>
+            <div id="displayFav" class="row pt-3 pl-3"></div>
+            <span id="testlocal"></span>
+        </div>
     </div>
 
     <div class="container">
-        <div id="displayAnimals" class="row pl-3"></div> 
-        <div >
+        <div id="displayAnimals" class="row pl-3"></div>
+        <div>
             <div id="loadMore" class="btn btn-secondary mb-2">Load more...</div>
         </div>
     </div>
 
     <script type="text/javascript" src="assets/javascript/animals.js"></script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
+    
 </body>
+
 </html>

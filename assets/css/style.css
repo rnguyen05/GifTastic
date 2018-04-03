@@ -4,7 +4,6 @@
     font-size: 5rem;
 }
 
-
 img {
     display: block;
     border: solid 1px gray;
@@ -15,5 +14,13 @@ img {
     display: none;
 }
 
+.topics {
+    font-family: 'Rock Salt', cursive;
+    font-size: 1rem;
+    border-bottom: solid 2px gray;
+}
 
+/* .Fav {
+    display: none;
+} */
 
