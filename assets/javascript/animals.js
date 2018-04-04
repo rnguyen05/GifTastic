@@ -14,8 +14,8 @@ var queryUrlBase = "http://api.giphy.com/v1/gifs/search?&q=";
 //Function to convert first char in a word to uppercase
 function toTitleCase (str)
 {
-    return str.replace(/\w\S*/g, function (txt)
-    {return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    return str.replace(/\w\S*/g, function (txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
 }
 
@@ -54,7 +54,6 @@ function fetchData (varOffset) {
     }).then(function(response) {
         //Display ajax results
         var results = response.data;
-        // console.log(results);
         for (var d = 0; d < results.length; d++) {
             var gifDiv = $("<div id='BtnImg' class='mr-3 mb-4'>");
             
@@ -101,11 +100,9 @@ function fetchData (varOffset) {
 
 //One Click download function
 function downloadGif (data) {
-    var anchor = document.createElement('a');
-    anchor.href = data.downloadUrl;
-    anchor.target = '_blank';
-    anchor.download = data.fileName;
-    anchor.click();
+    var dataUri = "data:application/image/gif;charset=utf-8,Col1%2CCol2%2CCol3%0AVal1%2CVal2%2CVal3%0AVal11%2CVal22%2CVal33%0AVal111%2CVal222%2CVal333";
+    var filename = data;
+    $("<a download='" + filename + "' href='" + dataUri + "'></a>")[0].click();
 }
 
 //Function to remove begin and end quotes in string
@@ -120,8 +117,7 @@ function stripQuotes(a) {
 function writeLocalStorage(data) {
     var old = localStorage.getItem("localStorageFav");
     if (old === null) {old = ""};
-    localStorage.setItem("localStorageFav",  old + "~" + data);
-    console.log(localStorage);
+    localStorage.setItem("localStorageFav", old + "~" + data);
 }
 
 //Add to Favorite Gifs function
@@ -138,15 +134,15 @@ function favoriteGifs (addToFav) {
     }
 }
 
-//Save to Favorites Event Listener
+//Save to Favorites and localStorage
 $("#displayAnimals").on('click', '.btn-fv', function () {
     var addToFav = $(this).val();
     $(".Fav").css("display","block");
     writeLocalStorage(JSON.stringify(addToFav));
-    favoriteGifs(addToFav);//take this out later
+    favoriteGifs(addToFav);
 });
 
-//Button click event listener to call ajax to display images
+//Load images when topic button clicked
 $("#displayBtn").on('click', '.btn', function () {
     $("#displayAnimals").empty();
     queryAnimal = $(this).val();
@@ -154,20 +150,21 @@ $("#displayBtn").on('click', '.btn', function () {
     fetchData(offset);
 });
 
-//loadMore... button click event
+//Load more button
 $("#loadMore").on('click', function () {
     offset = "&offset="+loadMore*clickCount;
     fetchData(offset);
     clickCount++;
 });
 
-//Download button click event
-$("#displayAnimals").on('click', ".btn-dl", function () {
+//Download button
+$("#displayAnimals").on('click', '.btn-dl', function () {
     var gifFile = $(this).val();
-
+    //Call downloadGif function
+    downloadGif(gifFile);
 });
 
-//Button click event listener to pause gif images
+//Data state 
 $("#displayAnimals").on('click', ".gifImg",function () {
     var state = $(this).attr("data-state");
     if (state === "still") {
@@ -179,7 +176,7 @@ $("#displayAnimals").on('click', ".gifImg",function () {
         }  
 });
 
-//Add an Animal button click event listener
+//Add new topic button
 $(".btn-outline-secondary").on('click', function (e) {
     addNewAnimal = $("#newAnimal").val().toLowerCase().trim();
     if (addNewAnimal.length !== 0) {
