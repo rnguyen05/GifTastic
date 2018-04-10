@@ -8,7 +8,7 @@ var offset = 0;
 var loadMore = 25;
 var clickCount = 1;
 var limit = "&limit=10";
-var queryUrlBase = "http://api.giphy.com/v1/gifs/search?&q=";
+var queryUrlBase = "https://api.giphy.com/v1/gifs/search?&q=";
 //========================================================
 //Methods
 //Function to convert first char in a word to uppercase
